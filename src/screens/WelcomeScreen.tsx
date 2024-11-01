@@ -1,28 +1,37 @@
 import React from 'react';
-import { NativeBaseProvider, Box, Button, Center } from 'native-base';
+import { Button, Center, VStack, Text } from 'native-base';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator'; // Certifique-se de importar isso
+import { RootStackParamList } from '../navigation/AppNavigator';
+import { useNavigation } from '@react-navigation/native';
 
 type WelcomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   'Welcome'
 >;
 
-type Props = {
-  navigation: WelcomeScreenNavigationProp;
-};
+const WelcomeScreen = () => {
+  const navigation = useNavigation<WelcomeScreenNavigationProp>();
 
-const WelcomeScreen = ({ navigation }: Props) => {
   return (
-    <NativeBaseProvider>
-      <Center flex={1} bg="white">
-        <Box>
-          <Button onPress={() => navigation.navigate('Login')}>
-            Ir para Login
-          </Button>
-        </Box>
-      </Center>
-    </NativeBaseProvider>
+    <Center flex={1} bg="white">
+      <VStack space={4} alignItems="center">
+        <Text fontSize="2xl" fontWeight="bold">Bem-vindo!</Text>
+        <Button 
+          onPress={() => navigation.replace('Login')} // Usando replace para substituir Welcome por Login
+          colorScheme="primary"
+          width="75%"
+        >
+          Login
+        </Button>
+        <Button 
+          onPress={() => navigation.navigate('SignUp')} // Navigate pode ser usado para Cadastro, se quiser a opção de voltar
+          colorScheme="secondary"
+          width="75%"
+        >
+          Cadastrar
+        </Button>
+      </VStack>
+    </Center>
   );
 };
 

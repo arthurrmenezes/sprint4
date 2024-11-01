@@ -6,13 +6,12 @@ import SignUpScreen from '../screens/SignUpScreen';
 import FormScreen from '../screens/FormScreen';
 import ProfileInformationScreen from '../screens/ProfileInformationScreen';
 
-// Definindo o RootStackParamList com todas as telas do projeto
 export type RootStackParamList = {
   Welcome: undefined;
   Login: undefined;
   SignUp: undefined;
-  Form: undefined; // Adicionando a nova tela Form
-  ProfileInformation: undefined; // Adicionando a nova tela ProfileInformation
+  Form: undefined;
+  ProfileInformation: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -23,27 +22,27 @@ const AppNavigator = () => {
       <Stack.Screen 
         name="Welcome" 
         component={WelcomeScreen} 
-        options={{ title: 'Tela Inicial' }} // Título personalizável
+        options={{ title: 'Tela Inicial' }} 
       />
       <Stack.Screen 
         name="Login" 
         component={LoginScreen} 
-        options={{ title: 'Acesse sua conta' }} // Título personalizável
+        options={{ title: 'Acesse sua conta', headerShown: false }} 
       />
       <Stack.Screen 
         name="SignUp" 
         component={SignUpScreen} 
-        options={{ title: 'Cadastrar' }} // Título personalizável
+        options={{ title: 'Cadastrar', headerShown: false }} 
       />
       <Stack.Screen 
         name="Form" 
         component={FormScreen} 
-        options={{ title: 'Formulário' }} // Título personalizável
+        options={{ title: 'Formulário' }}
       />
       <Stack.Screen 
         name="ProfileInformation" 
         component={ProfileInformationScreen} 
-        options={{ title: 'Informações do Perfil' }} // Título personalizável
+        options={{ title: 'Perfil' }}
       />
     </Stack.Navigator>
   );
