@@ -10,7 +10,7 @@ type Props = {
 };
 
 const SignUpScreen = ({ navigation }: Props) => {
-  // Estado para armazenar os valores dos campos
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -37,16 +37,16 @@ const SignUpScreen = ({ navigation }: Props) => {
       });
 
       const data = await response.json();
-      console.log(data); // Log da resposta
+      console.log(data);
 
       if (!response.ok) {
-        setMessage(data.message || 'Erro desconhecido'); // Mensagem padrão
+        setMessage(data.message || 'Erro desconhecido'); 
       } else {
         setMessage('Usuário registrado com sucesso!');
         navigation.navigate('Login');
       }
     } catch (error) {
-      console.error('Erro:', error); // Log de erros
+      console.error('Erro:', error); 
       setMessage('Erro ao cadastrar usuário.');
     }
     console.log('Dados a serem enviados:', { username, password, confirmPassword });

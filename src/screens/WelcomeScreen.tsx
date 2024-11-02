@@ -17,14 +17,14 @@ const WelcomeScreen = () => {
       <VStack space={4} alignItems="center">
         <Text fontSize="2xl" fontWeight="bold">Bem-vindo!</Text>
         <Button 
-          onPress={() => navigation.replace('Login')} // Usando replace para substituir Welcome por Login
+          onPress={() => navigation.replace('Login')} 
           colorScheme="primary"
           width="75%"
         >
           Login
         </Button>
         <Button 
-          onPress={() => navigation.navigate('SignUp')} // Navigate pode ser usado para Cadastro, se quiser a opção de voltar
+          onPress={() => navigation.navigate('SignUp')} 
           colorScheme="secondary"
           width="75%"
         >

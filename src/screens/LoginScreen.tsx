@@ -13,9 +13,9 @@ const LoginScreen = () => {
   const [error, setError] = useState('');
 
   const handleLogin = async () => {
-    // Exemplo de chamada de API de login
+
     try {
-      const response = await fetch('http://localhost:3000/login', { // URL do backend local
+      const response = await fetch('http://localhost:3000/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,16 +24,16 @@ const LoginScreen = () => {
       });
 
       if (!response.ok) {
-        setError('Credenciais inválidas'); // Mensagem de erro
+        setError('Credenciais inválidas'); 
         return;
       }
 
       const data = await response.json();
-      // Supondo que você tenha um token de autenticação
+
       if (data.token) {
-        navigation.navigate('ProfileInformation'); // Navega para a tela de perfil
+        navigation.navigate('ProfileInformation'); 
       } else {
-        setError('Falha no login'); // Outra mensagem de erro se necessário
+        setError('Falha no login'); 
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
